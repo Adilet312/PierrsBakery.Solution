@@ -9,7 +9,7 @@ namespace PierrsBakery.Models
         private string desciption;
         private double price;
         private DateTime date;
-        public int Id;
+        public int OrderID;
         private static  List<Order> listOfOrders = new List<Order>{};
         /*Default constructor without any parametrs.*/
         public Order()
@@ -24,7 +24,7 @@ namespace PierrsBakery.Models
             this.price = setPrice(price);
             this.date = setDate(date);
             listOfOrders.Add(this);
-            Id = listOfOrders.Count;
+            OrderID = listOfOrders.Count;
         }
 
         public void setPrice(double new_price)
