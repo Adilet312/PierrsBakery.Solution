@@ -1,0 +1,23 @@
+@using PierrsBakery.Models;
+@using PierrsBakery.Controllers;
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Find the place by ID</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    </head>
+    <body>
+        <h1>Orders with Details: </h1>
+
+    <h2>@Model["order"].getDescription()</h2>
+    <h3>Vendor: @Model["vendor"].getVendorName()</h3>
+
+    <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a>
+    <a href='/vendors'>View all vendors</a>
+    @* <h1>Find the Item by ID!</h1>
+
+    @Model.toString()   
+    <p><a href="/">Back to places Home.</a></p> *@
+</body>
+</html>

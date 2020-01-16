@@ -5,11 +5,11 @@ namespace PierrsBakery.Models
 {
     public class Order
     {
-        private string title;
-        private string desciption;
-        private double price;
-        private DateTime date;
-        public int OrderID;
+        private string orderTitle;
+        private string orderDesciption;
+        private double orderPrice;
+        private DateTime orderDate;
+        public int Id;
         private static  List<Order> listOfOrders = new List<Order>{};
         /*Default constructor without any parametrs.*/
         public Order()
@@ -19,56 +19,66 @@ namespace PierrsBakery.Models
         /*Constructor with all parameters. */
         public Order(string title, string description, double price, DateTime date)
         {
-            this.title = title;
-            this.desciption = desciption;
-            this.price = setPrice(price);
-            this.date = setDate(date);
+            this.orderTitle = title;
+            this.orderDesciption = description;
+            setPrice(price);
+            setDate(date);
             listOfOrders.Add(this);
-            OrderID = listOfOrders.Count;
+            Id = listOfOrders.Count;
         }
 
         public void setPrice(double new_price)
         {
            if(new_price<0)
            {
-               throw new ArgumentException("Invalid data is given!");
+               throw new ArgumentException("Invalid price is given!");
            }
-           this.price = new_price;
+           this.orderPrice = new_price;
         }
-        public getPrice()
+        public double getPrice()
         {
-            return this.price;
+            return this.orderPrice;
         }
         public void setDate(DateTime new_date)
         {
-            if(new_date==null )
+            try
             {
-               throw new ArgumentException("Given date is epmty!"); 
+                
+                this.orderDate = new_date;
             }
-            this.date = new_date;
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+           
+            
         }
         public string getDate()
         {
-            return this.date.ToString("MMMM dd, yyyy");
+            return this.orderDate.ToString("MMMM dd, yyyy");
         }
         public void setTitle(string new_title)
         {
-            this.title = new_title;
+            this.orderTitle = new_title;
         }
         public string getTitle()
         {
-            return this.title;
+            return this.orderTitle;
         }
         public void setDescription(string new_description)
         {
-            this.desciption = new_description;
+            this.orderDesciption = new_description;
+        }
+        public string getDescription()
+        {
+            return this.orderDesciption;
         }
 
         public string printPropertiesOfOrders()
         {
-            string result = "Title: " + this.title + 
-                            ",Description: " + this.desciption +
-                            ", Price: $" + this.price + 
+            string result = "Title: " + this.orderTitle + 
+                            ",Description: " + this.orderDesciption +
+                            ", Price: $" + this.orderPrice + 
                             ", Date: " + getDate();
             return result;
         }

@@ -1,6 +1,7 @@
 using System.Collections.Generic; 
 using System;
 using System.Text.RegularExpressions;
+
 namespace PierrsBakery.Models
 {
     public class Vendor
@@ -9,23 +10,22 @@ namespace PierrsBakery.Models
         private string vendorDescription;
         private string vendorPhoneNumber;
         private string vendorAddress;
-        public int VendorID;
+        public int Id;
         private static List<Vendor> vendorList = new List<Vendor>{};
         private  List<Order> vendorOrders;
+        public Vendor()
+        {}
         public  Vendor(string name, string description, string phone, string address)
         {
             this.vendorName = name;
             this.vendorDescription = description;
-            this.vendorPhoneNumber = setPhone(phone);
+            setPhone(phone);
             this.vendorAddress = address;
             this.vendorOrders = new List<Order>{};
             vendorList.Add(this);
-            VendorID = vendorList.Count;
+            Id = vendorList.Count;
 
         }
-
-
-
         public void setPhone(string given_phone)
         {
             if(!Regex.IsMatch(given_phone,"[0-9]{10}"))
@@ -34,7 +34,6 @@ namespace PierrsBakery.Models
 
             }
             this.vendorPhoneNumber = given_phone;
-
         }
         public string getPhoneNumber()
         {
@@ -58,7 +57,7 @@ namespace PierrsBakery.Models
         }
         public void setVendorAddress(string given_address)
         {
-            this.address = given_address;
+            this.vendorAddress = given_address;
         }
         public string getVendorAddress()
         {
@@ -85,22 +84,21 @@ namespace PierrsBakery.Models
         {
             vendorList.Clear();
         }
-        public static Category findVendorById(int given_id)
+        public static Vendor findVendorById(int given_id)
         {
-            if(given_id > listOfOrders.Count || given_id <=0)
+            if(given_id > vendorList.Count || given_id <=0)
             {
                 return null;
             }
             return vendorList[given_id-1];
         }
-
         public string printPropertiesOfVendor()
         {
             string result = "Vendor Title: " + this.vendorName +
                             "Vendor Description: " + this.vendorDescription +
                             "Vendor Phone number: " + this.vendorPhoneNumber +
                             "Vendor Address: " + this.vendorAddress;
-                            return result;
+            return result;
         }
 
 

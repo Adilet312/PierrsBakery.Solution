@@ -1,0 +1,24 @@
+@using PierrsBakery.Models;
+@using PierrsBakery.Controllers;
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>He are all items in this category.</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    </head>
+    <body>
+      <h3>Here are all the orders in this Vendor:</h3>
+
+      <ol>
+      @foreach (var order in @Model["orders"])
+      {
+        <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.getTitle()</a></li>
+      }
+      </ol>
+
+      <p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a></p>
+      <p><a href='/vendors'>Return to vendor list</a></p>
+      <p><a href='/'>Return to Main Page</a></p>
+    </body>
+</html>
