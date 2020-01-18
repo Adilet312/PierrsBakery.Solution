@@ -1,33 +1,30 @@
+@{
+  Layout = "_Layout";
+}
 @using PierrsBakery.Models;
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title>Create a Custom Vendor!</title>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    </head>
-    <body>
+<center>
 <h1>List of Vendors</h1>
 @if (Model.Count == 0)
 {
-  <p>There are no Vendor in the list.</p>
+  <p>There are no Vendors in the list.</p>
 }
 <ul>
-    @foreach (Vendor vendor_ref in Model )
+    @foreach (Vendor vendor in Model )
     {
       
-        <h3><a href="/vendors/@vendor_ref.Id" >@vendor_ref.getVendorName()</a></h3>
+        <h3><a href="/vendors/@vendor.Id" >@vendor.getVendorName()</a></h3>
     }
   
 </ul>
-<a href="/vendors/new">Add a new Vendor.</a>
-<form action="/vendors/delete" method="post">
-  <button type="submit" class="btn btn-info">Clear All Vendors</button>
-</form>
+
 <form action="/vendors/{id}" method="get">
-  <label for="categoryId">Find Category by ID</label>
-  <input id="categoryId" name="id" type="number">
+  <label for="vendorId">Find Vendor by ID</label>
+  <input id="vendorId" name="id" type="number">
   <button type="submit" class="btn btn-info" >Find Vendor</button>
 </form>
-</body>
-</html>
+<a href='/vendors/new'>Add Vendor for my List</a><br>
+<a href="/">Return Home Page</a>
+ <form action="/vendors/delete" method="post">
+  <button type="submit" class="btn btn-info">Clear All Vendors</button>
+</form>
+</center>

@@ -9,11 +9,13 @@ namespace PierrsBakery.Models
         private string orderDesciption;
         private double orderPrice;
         private DateTime orderDate;
-        public int Id;
+        public int Id {get;}
         private static  List<Order> listOfOrders = new List<Order>{};
         /*Default constructor without any parametrs.*/
-        public Order()
+        public Order(string title, string description)
         {
+            this.orderTitle = title;
+            this.orderDesciption = description;
 
         }
         /*Constructor with all parameters. */

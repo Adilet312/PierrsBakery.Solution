@@ -1,36 +1,34 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using PierrsBakery.Models;
-using System.Collections.Generic;
 
-namespace PierrsBakery.Controllers
+namespace  PierrsBakery.Controllers
 {
-    public class OrderController : Controller
+    public class OrdersController : Controller
     {
-        /*Data or given id comes from form(browser)*/
-        [HttpGet("/vendors/{categoryId}/orders/new")]
-        public ActionResult New(int categoryId)
-        {
-            Vendor single_vendor = Vendor.findVendorById(categoryId);
-            return View(single_vendor);
-        }
-
-        
-        [HttpGet("/vendors/{categoryId}/orders/{orderId}")]
-        public ActionResult Show(int categoryId, int orderId)
+        [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
+        public ActionResult Show(int vendorId, int orderId)
         {
             Order order = Order.findOrderById(orderId);
-            Vendor vendor = Vendor.findVendorById(categoryId);
-            Dictionary<string,object> model = new Dictionary<string, object>();
-            model.Add("order",order);
-            model.Add("vendor",vendor);
+            Vendor vendor = Vendor.findVendorById(vendorId);
+            Dictionary<string, object> model = new Dictionary<string, object>();
+            model.Add("order", order);
+            model.Add("vendor", vendor);
             return View(model);
         }
 
-        // [HttpPost("/items/delete")]
-        // public ActionResult DeleteAll()
-        // {
-        // Item.clearAllItems();
-        // return View();
-        // }
+        [HttpGet("/vendors/{vendorId}/orders/new")]
+        public ActionResult New(int vendorId)
+        {
+           Vendor vendor = Vendor.findVendorById(vendorId);
+
+            return View(vendor);
+        }
+        [HttpPost("/orders/delete")]
+        public ActionResult DeleteAll()
+        {
+            Order.deleteAllOrders();
+            return View();
+        }
     }
 }

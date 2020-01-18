@@ -1,13 +1,9 @@
+@{
+  Layout = "_Layout";
+}
 @using PierrsBakery.Models;
 @using PierrsBakery.Controllers;
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title>Find the place by ID</title>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    </head>
-    <body>
+
         <h1>Orders with Details: </h1>
 
     <h2>@Model["order"].getDescription()</h2>
@@ -19,5 +15,3 @@
 
     @Model.toString()   
     <p><a href="/">Back to places Home.</a></p> *@
-</body>
-</html>

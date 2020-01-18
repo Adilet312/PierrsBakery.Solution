@@ -10,7 +10,7 @@ namespace PierrsBakery.Models
         private string vendorDescription;
         private string vendorPhoneNumber;
         private string vendorAddress;
-        public int Id;
+        public int Id {get;}
         private static List<Vendor> vendorList = new List<Vendor>{};
         private  List<Order> vendorOrders;
         public Vendor()

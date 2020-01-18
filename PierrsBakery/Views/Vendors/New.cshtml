@@ -1,29 +1,25 @@
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title>Create a Vendor !</title>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    </head>
-    <body>
-        <h1>Form Page</h1>
+    @{
+  Layout = "_Layout";
+}
+    @using PierrsBakery.Models;
+    <center>
+    <h3>Create a Vendor</h3>
      <form action="/vendors" method="post"><br>
         @* Fill out Vendor name. *@
-        <label for="vId">Please Enter Vendor Name: </label>
-        <input id="givenVendorName" name="givenVendorName" type="text"><br>
+        <label for="vId">Please  Enter    Vendor     Name: </label>
+        <input id="givenVendorName" name="givenVendorName" type="text"><br><br>
         @* Fill out Vendor description. *@
-        <label for="vId">Please Enter Vendor Description: </label>
-        <input id="givenVendorDescription" name="givenVendorDescription" type="text"><br>
+        <label for="vId">Please Enter Vendor  Description: </label>
+        <input id="givenVendorDescription" name="givenVendorDescription" type="text"><br><br>
         @* Fill out Vendor Phone number. *@
         <label for="vId">Please Enter Vendor Phone Number: </label>
-        <input id="givenVendorPhone" name="givenVendorPhone" type="text"><br>
+        <input id="givenVendorPhone" name="givenVendorPhone" type="text"><br><br>
         @* Fill out Vendor Address. *@
-        <label for="vId">Please Enter Vendor Address: </label>
-        <input id="givenVendorAddress" name="givenVendorAddress" type="text"><br>
+        <label for="vId">Please  Enter   Vendor   Address: </label>
+        <input id="givenVendorAddress" name="givenVendorAddress" type="text"><br><br>
         <button type="submit">Submit</button>
     </form>
     <p><a href="/">Back home</a></p>
-    <p><a href="/vendors">Back to vendors.</a></p>
-   </body>
-</html>
+    <p><a href='/vendors'>See a list of vendors</a></p>
+    </center>
+   

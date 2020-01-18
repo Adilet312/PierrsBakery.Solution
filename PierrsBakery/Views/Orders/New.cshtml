@@ -1,16 +1,12 @@
+@{
+  Layout = "_Layout";
+}
 @using PierrsBakery.Models;
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title>Make  an Order !</title>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    </head>
-    <body>
+<center>
         <h1>Add a new order to @Model.getVendorName()</h1>
-         <form action="/vendors/@Model.Id/orders" method="post"><br>
+         <form action="/vendors/@Model.VendorId/orders" method="post"><br>
         @* This is vendor's id *@
-        <input id="categoryId" name="categoryId" type="hidden" value="@Model.Id">
+        <input id="vendorId" name="vendorId" type="hidden" value="@Model.VendorId">
         @* Fill out Order title. *@
         <label for="vId">Please Enter Order Title: </label>
         <input id="vId" name="givenOrderTitle" type="text"><br>
@@ -18,12 +14,11 @@
         <label for="vId">Please Enter Order Description: </label>
         <input id="vId" name="givenOrderDescription" type="text"><br>
         @* Fill out Order Price . *@
-        <label for="vId">Please Enter Order Price: </label>
+        @* <label for="vId">Please Enter Order Price: </label>
         <input id="vId" name="givenOrderPrice" type="text"><br>
         @* Fill out Vendor Address. *@
-        <label for="vId">Please Enter Date of Order: </label>
-        <input id="vId" name="givenOrderDate" type="date"><br>
+        @* <label for="vId">Please Enter Date of Order: </label>
+        <input id="vId" name="givenOrderDate" type="date"><br> *@ 
         <button type="submit">Submit Order</button>
-    </form>
-    </body>
-</html>
+        </form>
+  </center>
