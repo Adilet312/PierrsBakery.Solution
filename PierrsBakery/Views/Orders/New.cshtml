@@ -4,15 +4,15 @@
 @using PierrsBakery.Models;
 <center>
         <h1>Add a new order to @Model.getVendorName()</h1>
-         <form action="/vendors/@Model.VendorId/orders" method="post"><br>
+         <form action="/vendors/@Model.Id/orders" method="post"><br>
         @* This is vendor's id *@
-        <input id="vendorId" name="vendorId" type="hidden" value="@Model.VendorId">
+        <input id="vendorId" name="vendorId" type="hidden" value='@Model.Id'>
         @* Fill out Order title. *@
-        <label for="vId">Please Enter Order Title: </label>
-        <input id="vId" name="givenOrderTitle" type="text"><br>
+        <label for="givenOrderTitle">Please Enter Order Title: </label>
+        <input id="givenOrderTitle" name="givenOrderTitle" type="text"><br>
         @* Fill out Order description. *@
-        <label for="vId">Please Enter Order Description: </label>
-        <input id="vId" name="givenOrderDescription" type="text"><br>
+        <label for="givenOrderDescription">Please Enter Order Description: </label>
+        <input id="givenOrderDescription" name="givenOrderDescription" type="text"><br>
         @* Fill out Order Price . *@
         @* <label for="vId">Please Enter Order Price: </label>
         <input id="vId" name="givenOrderPrice" type="text"><br>

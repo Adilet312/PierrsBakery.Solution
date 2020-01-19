@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+@using PierrsBakery.Models;
+@using PierrsBakery.Controllers;
+<center>
+<h3>Found Vendor By Id.</h3>
+
+   <h3>List of orders under @Model["vendor_key"].getVendorName()</h4>
+   <br>
+   <br>
+   <hr/>
+   @foreach(var order in @Model["order_key"])
+    {
+        <h3>@order.getDescription()</h3>
+    }
+    
+
+<br>
+<br>
+<br>
+<hr/>
+<p><a href='/vendors'>Return to vendor list</a></p>
+<p><a href='/'>Return to Main Page</a></p>
+</center>

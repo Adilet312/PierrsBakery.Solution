@@ -6,10 +6,10 @@
 
         <h1>Orders with Details: </h1>
 
-    <h2>@Model["order"].getDescription()</h2>
-    <h3>Vendor: @Model["vendor"].getVendorName()</h3>
+    <h2>@Model["order_KEY"].getDescription()</h2>
+    <h3>Vendor: @Model["vendor_KEY"].getVendorName()</h3>
 
-    <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a>
+    <a href='/vendors/@Model["vendor_KEY"].Id/orders/new'>Add another order</a>
     <a href='/vendors'>View all vendors</a>
     @* <h1>Find the Item by ID!</h1>
 

@@ -9,22 +9,29 @@
   <p>There are no Vendors in the list.</p>
 }
 <ul>
-    @foreach (Vendor vendor in Model )
+    @foreach (Vendor vendory in Model )
     {
       
-        <h3><a href="/vendors/@vendor.Id" >@vendor.getVendorName()</a></h3>
+        <h3><a href="/vendors/@vendory.Id" >@vendory.getVendorName()</a></h3>
     }
   
 </ul>
-
-<form action="/vendors/{id}" method="get">
-  <label for="vendorId">Find Vendor by ID</label>
-  <input id="vendorId" name="id" type="number">
-  <button type="submit" class="btn btn-info" >Find Vendor</button>
-</form>
+<br>
+<br>
+<br>
+<hr/>
 <a href='/vendors/new'>Add Vendor for my List</a><br>
 <a href="/">Return Home Page</a>
+<br>
+<hr/>
  <form action="/vendors/delete" method="post">
   <button type="submit" class="btn btn-info">Clear All Vendors</button>
+</form>
+<br>
+<hr/>
+<form action="/vendors/search" method="get">
+  <label for="givenID">Find Vendor by ID</label>
+  <input id="givenID" name="givenID" type="number">
+  <button type="submit" class="btn btn-info" >Find Vendor</button>
 </form>
 </center>

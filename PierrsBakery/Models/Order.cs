@@ -5,11 +5,11 @@ namespace PierrsBakery.Models
 {
     public class Order
     {
-        private string orderTitle;
+        public string orderTitle;
         private string orderDesciption;
         private double orderPrice;
         private DateTime orderDate;
-        public int Id {get;}
+        public int Id;
         private static  List<Order> listOfOrders = new List<Order>{};
         /*Default constructor without any parametrs.*/
         public Order(string title, string description)
