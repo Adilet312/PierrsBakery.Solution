@@ -2,36 +2,21 @@
   Layout = "_Layout";
 }
 @using PierrsBakery.Models;
-<center>
-<h1>List of Vendors</h1>
-@if (Model.Count == 0)
+@model List<PierrsBakery.Models.Vendor>;
+  <center>
+<h1>Welcome list of vendor's page.</h1>
+@if(@Model.Count==0)
 {
-  <p>There are no Vendors in the list.</p>
+    <h4>There is no vendors in our list.</h4>
 }
-<ul>
-    @foreach (Vendor vendory in Model )
-    {
-      
-        <h3><a href="/vendors/@vendory.Id" >@vendory.getVendorName()</a></h3>
-    }
-  
-</ul>
-<br>
-<br>
-<br>
+  @foreach(Vendor vendor in Model)
+  {
+      <h3>@Html.ActionLink($"{vendor.VendorName}",  "Show", new { readID = vendor.VendorId})</h3>
+  }
+
 <hr/>
-<a href='/vendors/new'>Add Vendor for my List</a><br>
-<a href="/">Return Home Page</a>
-<br>
-<hr/>
- <form action="/vendors/delete" method="post">
-  <button type="submit" class="btn btn-info">Clear All Vendors</button>
-</form>
-<br>
-<hr/>
-<form action="/vendors/search" method="get">
-  <label for="givenID">Find Vendor by ID</label>
-  <input id="givenID" name="givenID" type="number">
-  <button type="submit" class="btn btn-info" >Find Vendor</button>
-</form>
-</center>
+<h3>@Html.ActionLink("Add new Vendor", "New")</h3>
+<h3>@Html.ActionLink("See all Orders", "Index", "Orders")</h3>
+<h3>@Html.ActionLink("Search Vendor", "Search", "Vendors")</h3>
+<h3>@Html.ActionLink("Return Home Page","Index","Home")</h3>
+  </center>

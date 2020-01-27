@@ -1,22 +1,29 @@
 @{
   Layout = "_Layout";
 }
+
 @using PierrsBakery.Models;
-@using PierrsBakery.Controllers;
+@model PierrsBakery.Models.Vendor;
 
-<h3>Here are all the orders of the Vendor:</h3>
+<hr/>
+<h3>Vendor Id#@Html.DisplayFor(model => model.VendorId): Name: @Html.DisplayFor(model => model.VendorName) ,Description: @Html.DisplayFor(model => model.VendorDescription), Phone number: @Html.DisplayFor(model => model.VendorPhone),Zip code: @Html.DisplayFor(model => model.VendorZip);</h3>
 
-    <ol>
-      @foreach (var order in @Model["orderKey"])
-      {
-        <h3><a href='/vendors/@Model["vendorKey"].Id/orders/@order.Id'>@order.getTitle()</a></h3>
-      }
-    </ol>
-    <br>
-    <br>
-    <br>
-    <hr/>
-    <p><a href='/vendors/@Model["vendorKey"].Id/orders/new'>Add a new order</a></p>
-    <p><a href='/vendors'>Return to vendor list</a></p>
-    <p><a href='/'>Return to Main Page</a></p>
-    
+<ul>
+    @if(@Model.Orders.Count == 0)
+    {   <h3>---------------------------</h3>
+        <h3>| There are no orders      |</h3>
+        <h3>---------------------------</h3>
+    }
+    @foreach(Order order in @Model.Orders)
+    {
+        <h3><li>Order Title: @order.OrderTitle, Description: @order.OrderDescription, Price Amount: @order.OrderPrice, Order Date: @order.OrderDate;</li></h3>
+
+    }
+</ul> 
+
+<hr />
+<h3>@Html.ActionLink("Add new  order","New","Orders")</h3>
+<h3>@Html.ActionLink("Update Vendor","Update",new {updateID=Model.VendorId})</h3>
+<h3>@Html.ActionLink("Delete Vendor","Delete",new {deleteID=Model.VendorId})</h3>
+<h3>@Html.ActionLink("Back to list of vendors","Index")</h3>
+<h3>@Html.ActionLink("Return Home Page", "Index","Home")</h3>

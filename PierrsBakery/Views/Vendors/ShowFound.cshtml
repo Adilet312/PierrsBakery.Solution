@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+@using PierrsBakery.Models;
+@model List<PierrsBakery.Models.Vendor>;
+
+<h2>Found Vendor by name.</h2>
+<hr />
+@* <h3>Stylist's name: @Html.DisplayFor(model => model.StylistName),Stylist's specialty: @Html.DisplayFor(model => model.StylistSpecialty)</h3> *@
+@foreach (Vendor vendor in Model)
+{
+  <h3><li> Vendor's name: @vendor.VendorName  </li></h3>
+}
+<h3>@Html.ActionLink("Return Home Page","Index","Home")</h3>

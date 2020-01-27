@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierrsBakery.Models.Order
+
+<h2>Are you sure you want to delete this?</h2>
+<h3>Title: @Html.DisplayFor(model => model.OrderTitle),Description: @Html.DisplayFor(model => model.OrderDescription),Price: @Html.DisplayFor(model => model.OrderPrice),Date: @Html.DisplayFor(model => model.OrderDate)</h3>
+@using (Html.BeginForm())
+{
+    
+    <h3><input type="submit" value="Submit for deletion" /></h3>
+}
+<hr/>
+<h3>@Html.ActionLink("Back to list of orders", "Index")</h3>
+<h3>@Html.ActionLink("Return Home Page", "Index","Home")</h3>

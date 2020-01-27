@@ -4,7 +4,29 @@
 
 ## Description
 * Pierr's Bakery C# Web App
+## DataBase
+```
+DROP DATABASE IF EXISTS vendor_and_orders;
+CREATE DATABASE vendor_and_orders;
+Use vendor_and_orders;
 
+CREATE TABLE Vendors(
+			       VendorId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                   VendorName VARCHAR(255) NOT NULL,
+                   VendorDescription VARCHAR(255) NOT NULL,
+                   VendorPhone VARCHAR(255) NOT NULL,
+                   VendorZip INT  NOT NULL
+);
+CREATE TABLE `Orders`(
+					OrderId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                    VendorId INT NOT NULL,
+                    OrderTitle VARCHAR(255) NOT NULL,
+                    OrderDescription VARCHAR(255) NOT NULL,
+                    OrderPrice DOUBLE NOT NULL,
+                    OrderDate DATE NOT NULL,
+                    CONSTRAINT fk_vendor_vendorId FOREIGN KEY (VendorId) REFERENCES Vendors (VendorId) ON DELETE CASCADE
+);
+```
 ## Technologies Used
 * C#
 * .NET

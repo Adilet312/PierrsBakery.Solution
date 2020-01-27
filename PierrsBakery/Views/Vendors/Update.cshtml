@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+@using PierrsBakery.Models;
+@model PierrsBakery.Models.Vendor;
+<h4>Update Vendor.</h4>
+<h3>Vendor Id#@Html.DisplayFor(model => model.VendorId): Name: @Html.DisplayFor(model => model.VendorName) ,Description: @Html.DisplayFor(model => model.VendorDescription), Phone number: @Html.DisplayFor(model => model.VendorPhone),Zip code: @Html.DisplayFor(model => model.VendorZip);</h3>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model=>model.VendorId)
+    <h3>Please Enter name: @Html.TextBoxFor(model=> model.VendorName)</h3>
+    <h3>Please Enter description: @Html.TextBoxFor(model=> model.VendorDescription)</h3>
+    <h3>Please Enter phone number: @Html.TextBoxFor(model=> model.VendorPhone)</h3>
+    <h3>Please Enter zip code: @Html.TextBoxFor(model => model.VendorZip, new { type = "number", min = "0", step = "0.01" })</h3>
+    <h3> <input type ="submit" value="Update" /></h3>
+}
+<hr/>
+<h3>@Html.ActionLink("Back to list of  stylists", "Index")</h3>
+<h3>@Html.ActionLink("Return Home Page", "Index","Home")</h3>

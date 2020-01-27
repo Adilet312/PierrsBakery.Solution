@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using PierrsBakery.Models;
 
 namespace  PierrsBakery.Controllers
 {

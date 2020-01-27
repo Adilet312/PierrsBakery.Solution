@@ -1,24 +1,21 @@
 @{
   Layout = "_Layout";
 }
-@using PierrsBakery.Models;
-<center>
-        <h1>Add a new order to @Model.getVendorName()</h1>
-         <form action="/vendors/@Model.Id/orders" method="post"><br>
-        @* This is vendor's id *@
-        <input id="vendorId" name="vendorId" type="hidden" value='@Model.Id'>
-        @* Fill out Order title. *@
-        <label for="givenOrderTitle">Please Enter Order Title: </label>
-        <input id="givenOrderTitle" name="givenOrderTitle" type="text"><br>
-        @* Fill out Order description. *@
-        <label for="givenOrderDescription">Please Enter Order Description: </label>
-        <input id="givenOrderDescription" name="givenOrderDescription" type="text"><br>
-        @* Fill out Order Price . *@
-        @* <label for="vId">Please Enter Order Price: </label>
-        <input id="vId" name="givenOrderPrice" type="text"><br>
-        @* Fill out Vendor Address. *@
-        @* <label for="vId">Please Enter Date of Order: </label>
-        <input id="vId" name="givenOrderDate" type="date"><br> *@ 
-        <button type="submit">Submit Order</button>
-        </form>
-  </center>
+@{
+  Layout = "_Layout";
+}
+@model PierrsBakery.Models.Order
+
+<h4>Add a new order</h4>
+@using (Html.BeginForm())
+{
+    <h3>Please enter Title: @Html.TextBoxFor(model => model.OrderTitle)</h3>
+    <h3>Please enter Description: @Html.TextBoxFor(model => model.OrderDescription)</h3>
+    <h3>Please enter Price:  @Html.TextBoxFor(model => model.OrderPrice, new { type = "number", min = "0", step = "0.01" })</h3>
+    <h3>Please enter Date:  @Html.EditorFor(model => model.OrderDate, new { @type = "date" })</h3>
+    <h3>Select @Html.LabelFor(model => model.Vendor) to add orders: @Html.DropDownList("VendorId")</h3>
+    <h3><input type="submit" value="Submit in order to add a new order" /></h3>
+}
+<hr/>
+<h3>@Html.ActionLink("Show all vendors ", "Index","Vendors")</h3>
+<h3>@Html.ActionLink("Return Home Page", "Index","Home")</h3>

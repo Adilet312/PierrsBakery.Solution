@@ -1,17 +1,17 @@
 @{
   Layout = "_Layout";
 }
-@using PierrsBakery.Models;
-@using PierrsBakery.Controllers;
 
-        <h1>Orders with Details: </h1>
+@model PierrsBakery.Models.Order
 
-    <h2>@Model["order_KEY"].getDescription()</h2>
-    <h3>Vendor: @Model["vendor_KEY"].getVendorName()</h3>
-
-    <a href='/vendors/@Model["vendor_KEY"].Id/orders/new'>Add another order</a>
-    <a href='/vendors'>View all vendors</a>
-    @* <h1>Find the Item by ID!</h1>
-
-    @Model.toString()   
-    <p><a href="/">Back to places Home.</a></p> *@
+<h2>Welcome Order's Details</h2>
+<hr />
+<h3>Title: @Html.DisplayFor(model => model.OrderTitle)</h3>
+<h3>Description: @Html.DisplayFor(model => model.OrderDescription)</h3>
+<h3>Price: @Html.DisplayFor(model => model.OrderPrice)</h3>
+<h3>Date: @Html.DisplayFor(model => model.OrderDate)</h3>
+<hr />
+<h3>@Html.ActionLink("Update order", "Update", new { updateID = Model.OrderId })</h3>
+<h3>@Html.ActionLink("Delete  order", "Delete", new { deleteID = Model.OrderId })</h3>
+<h3>@Html.ActionLink("Back To Orders's List", "Index", "Orders")</h3>
+<h3>@Html.ActionLink("Back to list", "Index")</h3>

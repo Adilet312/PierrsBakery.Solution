@@ -1,25 +1,39 @@
-    @{
+  @{
   Layout = "_Layout";
-}
-    @using PierrsBakery.Models;
-    <center>
+  }
+  @using PierrsBakery.Models;
+  @model PierrsBakery.Models.Vendor;
+  <center>
     <h3>Create a Vendor</h3>
-     <form action="/vendors" method="post"><br>
-        @* Fill out Vendor name. *@
-        <label for="vId">Please  Enter    Vendor     Name: </label>
-        <input id="givenVendorName" name="givenVendorName" type="text"><br><br>
-        @* Fill out Vendor description. *@
-        <label for="vId">Please Enter Vendor  Description: </label>
-        <input id="givenVendorDescription" name="givenVendorDescription" type="text"><br><br>
-        @* Fill out Vendor Phone number. *@
-        <label for="vId">Please Enter Vendor Phone Number and Supposed to be 10 digits: </label>
-        <input id="givenVendorPhone" name="givenVendorPhone" type="text"><br><br>
-        @* Fill out Vendor Address. *@
-        <label for="vId">Please  Enter   Vendor   Address: </label>
-        <input id="givenVendorAddress" name="givenVendorAddress" type="text"><br><br>
-        <button type="submit">Submit</button>
-    </form>
+     @using (Html.BeginForm())
+    {
+      <h3>Please  Enter  Name:        @Html.TextBoxFor(model => model.VendorName)</h3>
+      <h3>Please  Enter  Description: @Html.TextBoxFor(model => model.VendorDescription)</h3>
+      <h3>Please  Enter  Phone number @Html.TextBoxFor(model => model.VendorPhone)</h3>
+      <h3>Please  Enter  Zip code:    @Html.TextBoxFor(model => model.VendorZip, new { type = "number", min = "0", step = "0.01" })</h3>
+      <input type="submit" value="Add new vendor" />
+    }
+
     <p><a href="/">Back home</a></p>
     <p><a href='/vendors'>See a list of vendors</a></p>
     </center>
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
